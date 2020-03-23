@@ -53,8 +53,8 @@
 	    <form method="POST" action="" style="padding-top: 7%; padding-left: 4%" name="myform">
         
         <center>
-	    	<p><input type="text" class="form-control rounded-pill  border border-success" placeholder="Enter starting point" name="Location1" id="box1" style="margin-top: 30%"></input></p>
-	    	<p><input type="text" class="form-control rounded-pill  border border-success" placeholder="Enter destination" name="Location2" id="box1"></input></p>
+	    	<p><input type="text" class="form-control rounded-pill  border border-success" placeholder="Enter starting point" required name="Location1" id="box1" style="margin-top: 30%"></input></p>
+	    	<p><input type="text" class="form-control rounded-pill  border border-success" placeholder="Enter destination" required name="Location2" id="box1"></input></p>
         
 	    	<p><button type="submit" name="submit" class="btn-outline-success btn-toggle btn-large btn-block rounded-pill" id="box1"><strong>Display route</strong></button>
         </p></center>
@@ -77,8 +77,8 @@
         var map = new H.Map(mapContainer,
             defaultLayers.vector.normal.map, {
                 center: {
-                    lat: 52.5160,
-                    lng: 13.3779
+                    lat: 28.644800,
+                    lng: 77.216721
                 },
                 zoom: 13,
                 pixelRatio: window.devicePixelRatio || 1
@@ -86,7 +86,9 @@
 
         var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
         var ui = H.ui.UI.createDefault(map, defaultLayers);
-        if('<?php echo isset($_POST["submit"]); ?>'){
+        
+        
+        if('<?php echo isset($_POST['submit']); ?>'){
         function calculateRouteFromAtoB(platform, pos) {
             console.log(pos);
             console.log(pos.length);
@@ -245,11 +247,11 @@
         
 
         var geocodingParams = {
-            searchText: '<?php if(isset($_POST["submit"]) && isset($_POST["Location1"])){echo $_POST["Location1"] ;} ?>'
+            searchText: '<?php if(isset($_POST["submit"])){echo $_POST["Location1"] ;} ?>'
         };
 
         var geocodingParams1 = {
-            searchText: '<?php if(isset($_POST["submit"]) && isset($_POST["Location2"])){echo $_POST["Location2"] ;} ?>'
+            searchText: '<?php if(isset($_POST["submit"])){echo $_POST["Location2"] ;} ?>'
         };
 
         obj = Object({
@@ -277,52 +279,24 @@
         window.addEventListener('resize', () => map.getViewPort().resize());
         var geocoder = platform.getGeocodingService();
 
-        geocoder.geocode(geocodingParams, onResult, function(e) {
-            alert(e);
-        }).then(function() {
-            geocoder.geocode(geocodingParams1, onResult, function(e) {
-                alert(e);
-            }).then(function(){
-                calculateRouteFromAtoB(platform, obj['arr']);
-            });
-        });
-    }
+       
+	        geocoder.geocode(geocodingParams, onResult, function(e) {
+	            alert(e);
+	        }).then(function() {
+	        	
+	            geocoder.geocode(geocodingParams1, onResult, function(e) {
+	                alert(e);
+	            }).then(function(){
+	                calculateRouteFromAtoB(platform, obj['arr']);
+	            });
+	        });
+    	}
+    	
+    
 
     </script>
 </div>
 
-<?php 
-        $loc1="";$loc2="";
-        if(isset($_POST['submit'])){
-          
-          if(isset($_POST['Location1']))
-          {
-            $loc1=$_POST['Location1'];
-            if(isset($_POST['Location2']))
-            {
-              $loc2=$_POST['Location2'];
-            }
-            if(empty($_POST['Location2'])){
-              echo '<script type="text/javascript">';
-              echo 'alert("Enter destination")';
-              echo '</script>';
-            }
-          }
-          if(isset($_POST['Location2']))
-          {
-            $loc2=$_POST['Location2'];
-            if(isset($_POST['Location1']))
-            {
-              $loc1=$_POST['Location1'];
-            }
-            if( empty($_POST['Location1'])){
-              echo '<script type="text/javascript">';
-              echo 'alert("Enter starting point")';
-              echo '</script>';
-            }
-          }
-        }
-      ?>
 </body>
 
 </html>
