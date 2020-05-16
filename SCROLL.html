@@ -4,6 +4,7 @@
     <head>
         <TITLE>testing scrollspy</TITLE>
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
         <style type="text/css">
 
         body{
-                background: black url(aperture-vintage-SshYpuf607g-unsplash.jpg) no-repeat top center fixed;
+                background: black;
                 background-size: cover;
                 
             }
@@ -128,17 +129,16 @@
         <nav class="navbar navbar-vertical navbar-expand-sm bg-dark navbar-dark fixed-top">
                 
 
-                <a class="navbar-brand js-scroll-trigger" href="#home">HOME</a>
-                
+               
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavdropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
                 <div class="collapse navbar-collapse content-end" id="navbarNavdropdown">
                     <ul class="navbar-nav">
+                    <li class="nav-item" ><a class="nav-link js-scroll-trigger" href="#home">HOME</a></li>
                     <li class="nav-item" ><a class="nav-link js-scroll-trigger" href="#log-in">LOGIN</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">SIGNUP</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">ABOUT</a></li>
                     </ul>
                 </div>
                 
@@ -147,21 +147,11 @@
         
         </nav>
 
-        <div id="home" class="container-fluid row section"  style="padding-top:18%;padding-left:20px;padding-bottom: 15%">
+        <div id="home" class="container-fluid row section" style="padding-top:18%;padding-left:100px;padding-bottom: 15% ;text-align:center;">
             
-            <div class="jumbotron jumbotron-fluid col-md-8">
-                <h1 class="display-4" style="font-size: 60px; color: white ;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Welcome!</h1>
-                <p class="lead" style="color: white">Tracking path made easier!</p>
-                <hr class="my-4">
-                <p style="font-size: 40px; color: white">Login/Sign up to explore!</p>
-                <a class="btn btn-outline-light btn-lg" href="#" role="button">Login</a>
-                
-                <p style="font-size: 20px;color: white">Don't have an account?</p>
-                <button id="create" class="btn btn-outline-light btn-lg">Create Account</button>
-              
-              
-
-            </div>
+                <div style="font-family: 'Balsamiq Sans', cursive; font-size: 30px; color: white"> Kuch Naam Rakho Iska! <br>
+                This is a Simple Routing Application that displays the Route between the entered Source and Destination.<br>
+                Login/Sign up to explore more.</div>
         </div>
 
 
@@ -220,7 +210,7 @@
                         </div>
         
                         <div>
-                            <a href="signup.php" class="text-light">
+                            <a href="#signup" class="text-light nav-link js-scroll-trigger">
                                 <b>SIGN UP NOW</b>
                             </a>
                         </div>
@@ -299,7 +289,7 @@
                                 </div>
                 
                                 <div>
-                                    <a href="login.php" class="text-light">
+                                    <a href="#log-in" class="text-light nav-link js-scroll-trigger">
                                         LOGIN HERE
                                     </a>
                                 </div>
@@ -321,31 +311,6 @@
         </div>
         
         
-        <div id="about" class="container-fluid row no-gutters section" style="padding-top:10%;padding-bottom:30%;padding-left:20px">
-            <h1 class="display-4" style="font-size: 60px; color: white; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>About Us</b></h1>
-           <div class="col no-gutters">
-
-            <div class="leftside">
-                <div class="centered">
-                <img src="img/profile.jpeg" alt="Avatar woman">
-                <h2 style="color: white ; font-family: 'Oswald', sans-serif;">SANJANA TALREJA</h2>
-                  <div style="color: white; font-size: 20px;"">Student, Malaviya Institute of Technology, Jaipur</div>
-                  <p style="color: white">(B.tech,Electronics and Communication Engineering)</p>
-              </div>
-            </div>
-              
-            </div>
-            <div class="col no-gutters">
-                <div class="rightside">
-                    <div class="centered">
-                    <img src="img/profile2.jpg" alt="Avatar Woman">
-                    <h2 style="color: white ;font-family: 'Oswald', sans-serif;">RITU VERMA</h2>
-                <div style="color: white; font-size: 20px">Student, Malaviya Institute of Technology, Jaipur</div>
-                <p style="color: white">(B.tech,Electronics and Communication Engineering)</p>
-            </div>
-                </div>
-            </div>
-        </div>
    
         <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
