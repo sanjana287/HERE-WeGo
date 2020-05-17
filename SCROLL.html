@@ -2,133 +2,17 @@
 <HTML>
 
     <head>
-        <TITLE>testing scrollspy</TITLE>
+        <TITLE>Front Page</TITLE>
         <meta charset="utf-8">
-        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato|Montserrat|Open+Sans|Raleway|Roboto&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Amaranth|Lato|Montserrat|Open+Sans|Roboto|Source+Sans+Pro&display=swap" rel="stylesheet">
-        <style type="text/css">
-
-        body{
-                background: black;
-                background-size: cover;
-                
-            }
-        .jumbotron{
-                background-color: transparent;
-                border-left: 8px solid white;
-                padding-left: 20px;
-            }
-
-        input {
-            width: 300px;
-            height: 40px;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        #login {
-            text-align: center;
-            font-size: 45px;
-            font-weight: bold;
-            color: white;
-            background-color: transparent;
-            font-family: 'Montserrat', sans-serif;
-          
-        }
-
-        #sign-up{
-            
-            text-align: center;
-            font-size: 45px;
-            font-weight: bold;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            
-        }
-        
-        form {
-           
-           display: block;
-           margin:auto;
-          
-       }
-       
-
-        button{
-            background-color: transparent;
-            height: 40px;
-            font-size: 24px;
-        }
-
-        .container {
-            background-color: transparent;
-        }
-
-        .section{
-            margin-top: -70px;
-
-        }
-        .image {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  }
-
-           /* Split the screen in half */
-.leftside,.rightside {
-  height: 100%;
-  width: 50%;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 800px;
-}
-
-/* Control the left side */
-.left {
-  left: 0;
-  background-color: transparent;
-}
-
-/* Control the right side */
-.right {
-  right: 0;
-  background-color: transparent;
-}
-
-/* If you want the content centered horizontally and vertically */
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: justify-all;
-}
-
-/* Style the image inside the centered container, if needed */
-.centered img {
-  width: 150px;
-  border-radius: 50%;
-}
-
-
-            
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
 
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-        <nav class="navbar navbar-vertical navbar-expand-sm bg-dark navbar-dark fixed-top">
-                
-
+        <nav class="navbar navbar-vertical navbar-expand-sm navbar-dark fixed-top">
                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavdropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -147,29 +31,26 @@
         
         </nav>
 
-        <div id="home" class="container-fluid row section" style="padding-top:18%;padding-left:100px;padding-bottom: 15% ;text-align:center;">
+        <div id="home" class="container-cover h-100 w-100 one">
             
-                <div style="font-family: 'Balsamiq Sans', cursive; font-size: 30px; color: white"> Kuch Naam Rakho Iska! <br>
+                <div class="container two"> Kuch Naam Rakho Iska! <br>
                 This is a Simple Routing Application that displays the Route between the entered Source and Destination.<br>
                 Login/Sign up to explore more.</div>
         </div>
 
 
-        <div id="log-in" class="container-fluid row section" style="padding-top:10%;padding-bottom: 20%;">
-            
-            <form class="col-md-4" action="login.php" method="post">
+        <div id="log-in" class="container-cover w-100 h-100 one">
+            <div class="container two">
+            <form class="col-10 offest-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3" action="login.php" method="post">
 
                 <?php include('errors.php') ?>
         
-                    <div class="form-group" id="login">
-                        <p><b>LOGIN</strong></p>
+                    <div class="form-group" id="sign-up">
+                        <p>LOGIN</p>
                     </div>
                     <div class="container rounded-bottom">
         
-                        <div>
-                            
-                            <br>
-                        </div>
+                        
                        
         
                         <div class="form-group">
@@ -196,20 +77,15 @@
         
                         </center>
         
-                            <div>
-                                <br>
-                                <br>
-                            </div>
-        
                         <center>
                         
-                        <div>
+                        <div class="space">
                             <font color="white">
                             Don't have an account?</font>
                             <Br>
                         </div>
         
-                        <div>
+                        <div class="log">
                             <a href="#signup" class="text-light nav-link js-scroll-trigger">
                                 <b>SIGN UP NOW</b>
                             </a>
@@ -219,13 +95,13 @@
         
                     </div>
                   </form>
-        
+        </div>
     
         </div>
 
-        <div id="signup" class="container-fluid row section" style="padding-top:10%">
-            
-            <form class="col-md-4" action="signup.php" method="post">
+        <div id="signup" class="container-cover w-100 h-100 one">
+            <div class="container two">
+            <form class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3" action="signup.php" method="post">
             
                 <?php include('errors.php') ?>
         
@@ -234,11 +110,7 @@
                     </div>
                     <div class="container">
         
-                        <div>
-                            <br>
-                            <br>
-                        </div>
-        
+                        
                         <div class="form-group">
                                        
                             <input type="text" class="form-control rounded-pill  border border-success" placeholder="Username" name="username" required>
@@ -271,52 +143,41 @@
         
                         <center>
         
-                        <button type="submit" name="sign-up" class="btn-outline-light btn-toggle btn-large btn-block rounded-pill">Sign Up</button>
+                        <button type="submit" name="sign-up" class="btn-outline-light btn-toggle btn-block rounded-pill">Sign Up</button>
         
                         </center>
                         <div class="container" id="bottom">
         
-                            <div>
-                                <br>
-                                
-                            </div>
-        
                             <center>
                         
-                                <div style="color: white">
+                                <div class="space" style="color: white">
                                     Already have an account?
                                     <Br>
                                 </div>
                 
-                                <div>
+                                <div class="log">
                                     <a href="#log-in" class="text-light nav-link js-scroll-trigger">
                                         LOGIN HERE
                                     </a>
                                 </div>
                 
                                 </center>
-                                <div>
-                                    <br>
-                                   
-                                </div>
         
         
                     </div>
                     
                   </form>
 
-            
+            </div>
 
             
         </div>
-        
-        
-   
-        <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-       <script src="js/resume.min.js"></script>
-    </body>
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>    
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/resume.min.js"></script>
+</body>
 </HTML>
-
-
