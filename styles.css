@@ -1,0 +1,127 @@
+body{
+  background-color: black;
+  background-size: cover;       
+}
+.jumbotron{
+  background-color: transparent;
+  border-left: 8px solid white;
+  padding-left: 20px;
+}
+.navbar {
+  background-color: transparent;
+}
+input {
+  font-family: 'Open Sans', sans-serif;
+}
+#sign-up{
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 20px;
+}
+form {           
+  display: block;
+  margin:auto;        
+}
+button{
+  background-color: transparent;
+  height: 40px;
+}
+.space {
+  margin-top: 20px;
+}
+.container {
+  background-color: transparent;
+}
+.one {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.two {
+  align-self: center;
+  justify-content: center;
+  font-family: 'Balsamiq Sans', cursive; 
+  color: white;
+}
+.image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  }
+
+@media only screen and (max-width: 350px) {
+  #sign-up{
+  font-size: 25px;
+  }
+  input {
+  height: 30px;
+  }
+  .two {
+    font-size: 20px;
+  }
+  .space {
+    font-size: 15px;
+  }
+  .log {
+    font-size: 17px;
+  }
+
+}
+@media only screen and (max-width: 400px) {
+  #sign-up{
+  font-size: 30px;
+  }
+  input {
+  height: 30px;
+  }
+  .two {
+    font-size: 20px;
+  }
+  .space {
+    font-size: 14px;
+  }
+  .log {
+    font-size: 13px;
+  }
+
+}
+@media only screen and (min-width: 400px) {
+  #sign-up{
+  font-size: 30px;
+  }
+  input {
+  height: 40px;
+  }
+  .two {
+    font-size: 25px;
+  }
+  .space {
+    font-size: 16px;
+  }
+  .log {
+    font-size: 17px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  #sign-up{
+  font-size: 40px;
+  }
+  input {
+  height: 47px;
+  }
+  .two {
+    font-size: 30px;
+  }
+  .space {
+    font-size: 17px;
+  }
+  .log {
+    font-size: 18px;
+  }
+  button {
+    height: 50px;
+  }
+}
