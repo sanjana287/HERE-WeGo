@@ -1,4 +1,7 @@
-<?php include('server.php') ?>
+<?php require_once 'server.php' ; ?>
+<?php require_once 'connect.php' ; ?>
+<?php require_once 'index.php' ; ?>
+
 <HTML>
 
     <head>
@@ -41,7 +44,7 @@
 
         <div id="log-in" class="container-cover w-100 h-100 one">
             <div class="container two">
-            <form class="col-10 offest-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3" action="login.php" method="post">
+            <form class="col-10 offest-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3" action="connect.php" method="post">
 
                 <?php include('errors.php') ?>
         
@@ -101,7 +104,7 @@
 
         <div id="signup" class="container-cover w-100 h-100 one">
             <div class="container two">
-            <form class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3" action="signup.php" method="post">
+            <form class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3" action="server.php" method="post">
             
                 <?php include('errors.php') ?>
         

@@ -47,10 +47,10 @@
         <div class="nav navbar-nav content-end"><a href="SCROLL.html">Logout</a></div>
       </div>
     </nav>
-    <div class="container-cover"  style="position: relative; margin-top: 4%; padding-bottom: 0px">
-      <div class="row">
+    <div class="container-cover"  style="position: relative; margin-top: 4%; padding-bottom: 0px ; height: 100%">
+      <div class="row" style="height: 100%">
       <div class="col-sm-3" style="background-color: #3A3838; color: white">
-	    <form method="POST" action="" style="padding-top: 7%; padding-left: 4%" name="myform">
+	    <form method="POST" action="" style=" padding-left: 4%" name="myform">
         
         <center>
 	    	<p><input type="text" class="form-control rounded-pill  border border-success" placeholder="Enter starting point" required name="Location1" id="box1" style="margin-top: 30%"></input></p>
