@@ -1,71 +1,78 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap.min.css">
 
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
 
-    <meta name="viewport" content="initial-scale=1.0,
-        width=device-width" />
     <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.1/mapsjs-ui.css" />
 
-
     <style type="text/css">
-    	body {
+        body {
           background-size: cover;
-    	}
-      	#box1 {
+        }
+        #box1 {
+          height: 40px;
+          width: 300px;
+          margin-top: 50px;
+        }
+        #box2 {
           height: 40px;
           width: 300px;
           margin-top: 20px;
         }
         a {
-        	color: white;
+            color: white;
         }
         a.hover {
-        	text-decoration-line: none;
+            text-decoration-line: none;
+        }
+        @media only screen and (max-width: 400px) {
+            .container-cover {
+                position: relative;
+                 margin-top: 30px;
+            }
+        }
+        @media only screen and (min-width: 770px) {
+            #box1 {
+                margin-top: 150px;
+            }
         }
     </style>
 
 </head>
 
 <body>
-        <nav class="navbar bg-dark fixed-top" style="color: white">
-      <div class="container-fluid">
-        <div class="nav navbar-nav">Username</div>
-        <div class="nav navbar-nav content-end"><a href="SCROLL.html">Logout</a></div>
-      </div>
+    <nav class="navbar bg-dark fixed-top" style="color: white">
+        <div class="container-fluid">
+            <div class="nav navbar-nav">Username</div>
+            <div class="nav navbar-nav content-end"><a href="SCROLL.html">Logout</a></div>
+        </div>
     </nav>
-    <div class="container-cover"  style="position: relative; margin-top: 4%; padding-bottom: 0px ; height: 100%">
+    <div class="container-cover"  style="position: relative; padding-bottom: 0px ; height: 100%">
       <div class="row" style="height: 100%">
-      <div class="col-sm-3" style="background-color: #3A3838; color: white">
-	    <form method="POST" action="" style=" padding-left: 4%" name="myform">
+      <div class="col-12 col-md-5" style="background-color: #3A3838; color: white">
+        <form method="POST" action=""  name="myform">
         
         <center>
-	    	<p><input type="text" class="form-control rounded-pill  border border-success" placeholder="Enter starting point" required name="Location1" id="box1" style="margin-top: 30%"></input></p>
-	    	<p><input type="text" class="form-control rounded-pill  border border-success" placeholder="Enter destination" required name="Location2" id="box1"></input></p>
+            <p><input type="text" class="form-control rounded-pill  border border-success" placeholder="Enter starting point" required name="Location1" id="box1"></input></p>
+            <p><input type="text" class="form-control rounded-pill  border border-success" placeholder="Enter destination" required name="Location2" id="box2"></input></p>
         
-	    	<p><button type="submit" name="submit" class="btn-outline-success btn-toggle btn-large btn-block rounded-pill" id="box1"><strong>Display route</strong></button>
+            <p><button type="submit" name="submit" class="btn-outline-success btn-toggle btn-large btn-block rounded-pill" id="box2"><strong>Display route</strong></button>
         </p></center>
-		    
+            
       </form>
     </div>
 
-    <div class="col-sm-9" id="map">
+    <div class="col-12 col-md-7 w-100" id="map">
     <script>
 
-    	var mapContainer = document.getElementById('map'),
+        var mapContainer = document.getElementById('map'),
             routeInstructionsContainer = document.getElementById('panel');
 
         var platform = new H.service.Platform({
@@ -280,23 +287,25 @@
         var geocoder = platform.getGeocodingService();
 
        
-	        geocoder.geocode(geocodingParams, onResult, function(e) {
-	            alert(e);
-	        }).then(function() {
-	        	
-	            geocoder.geocode(geocodingParams1, onResult, function(e) {
-	                alert(e);
-	            }).then(function(){
-	                calculateRouteFromAtoB(platform, obj['arr']);
-	            });
-	        });
-    	}
-    	
+            geocoder.geocode(geocodingParams, onResult, function(e) {
+                alert(e);
+            }).then(function() {
+                
+                geocoder.geocode(geocodingParams1, onResult, function(e) {
+                    alert(e);
+                }).then(function(){
+                    calculateRouteFromAtoB(platform, obj['arr']);
+                });
+            });
+        }
+        
     
 
     </script>
 </div>
-
+    <script src="jquery.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js"></script>
 </body>
 
 </html>
