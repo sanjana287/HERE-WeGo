@@ -1,5 +1,13 @@
 <html lang="en">
 
+<?php
+    session_start();
+   
+    if(!isset($_SESSION['username'])){
+        header("Location: SCROLL.php");
+    }
+?>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,8 +58,8 @@
 <body>
     <nav class="navbar bg-dark fixed-top" style="color: white">
         <div class="container-fluid">
-            <div class="nav navbar-nav">Username</div>
-            <div class="nav navbar-nav content-end"><a href="SCROLL.html">Logout</a></div>
+            <div class="nav navbar-nav">You are now Logged in!</div>
+            <div class="nav navbar-nav content-end"><a href="signout.php?logout=1">Logout</a></div>
         </div>
     </nav>
     <div class="container-cover"  style="position: relative; padding-bottom: 0px ; height: 100%">
@@ -115,17 +123,6 @@
                 onError
             );
         }
-
-        function onSuccess(result) {
-            var route = result.response.route[0];
-            addRouteShapeToMap(route);
-            addManueversToMap(route);
-
-            addWaypointsToPanel(route.waypoint);
-            addManueversToPanel(route);
-            addSummaryToPanel(route.summary);
-        }
-
         function addRouteShapeToMap(route) {
             var lineString = new H.geo.LineString(),
                 routeShape = route.shape,
@@ -184,68 +181,6 @@
             map.addObject(group);
         }
 
-        function addWaypointsToPanel(waypoints) {
-
-            var nodeH3 = document.createElement('h3'),
-                waypointLabels = [],
-                i;
-
-            for (i = 0; i < waypoints.length; i += 1) {
-                waypointLabels.push(waypoints[i].label)
-            }
-
-            nodeH3.textContent = waypointLabels.join(' - ');
-            routeInstructionsContainer.innerHTML = '';
-            routeInstructionsContainer.appendChild(nodeH3);
-        }
-
-        function addSummaryToPanel(summary) {
-            var summaryDiv = document.createElement('div'),
-                content = '';
-            content += 'Total distance: ' + summary.distance + 'm.';
-            content += 'Travel Time: ' + summary.travelTime.toMMSS() + ' (in current traffic)';
-            summaryDiv.style.fontSize = 'small';
-            summaryDiv.style.marginLeft = '5%';
-            summaryDiv.style.marginRight = '5%';
-            summaryDiv.innerHTML = content;
-            routeInstructionsContainer.appendChild(summaryDiv);
-        }
-
-        function addManueversToPanel(route) {
-            var nodeOL = document.createElement('ol'),
-                i,
-                j;
-
-            nodeOL.style.fontSize = 'small';
-            nodeOL.style.marginLeft = '5%';
-            nodeOL.style.marginRight = '5%';
-            nodeOL.className = 'directions';
-
-            // Add a marker for each maneuver
-            for (i = 0; i < route.leg.length; i += 1) {
-                for (j = 0; j < route.leg[i].maneuver.length; j += 1) {
-                    // Get the next maneuver.
-                    maneuver = route.leg[i].maneuver[j];
-
-                    var li = document.createElement('li'),
-                        spanArrow = document.createElement('span'),
-                        spanInstruction = document.createElement('span');
-
-                    spanArrow.className = 'arrow ' + maneuver.action;
-                    spanInstruction.innerHTML = maneuver.instruction;
-                    li.appendChild(spanArrow);
-                    li.appendChild(spanInstruction);
-
-                    nodeOL.appendChild(li);
-                }
-            }
-
-            routeInstructionsContainer.appendChild(nodeOL);
-        }
-
-        Number.prototype.toMMSS = function() {
-            return Math.floor(this / 60) + ' minutes ' + (this % 60) + ' seconds.';
-        }
 
         function onError(error) {
             alert('Can\'t reach the remote server');
@@ -264,6 +199,15 @@
         obj = Object({
             'arr': Array()
         });
+        function onSuccess(result) {
+            var route = result.response.route[0];
+            addRouteShapeToMap(route);
+            addManueversToMap(route);
+
+            //addWaypointsToPanel(route.waypoint);
+            //addManueversToPanel(route);
+            //addSummaryToPanel(route.summary);
+        }
         var onResult = function(result) {
             var locations = result.Response.View[0].Result,
                 position,

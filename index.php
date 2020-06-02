@@ -1,17 +1,21 @@
 <?php
-
-session_start();
-if(isset($_SESSION['Username']))
+//echo "Hello";
+include 'connect.php';
+if(isset($_SESSION['username']))
 {
-    $_SESSION['msg'] = "You must log in first to view the page";
-    header("location : SCROLL.html");
+	session_start();
+  $_SESSION['msg'] = "You must log in first to view the page";
+header("location : SCROLL.php");
 
 }
 if(isset($_GET['logout']))
 {
+	session_start();
+	unset($_SESSION['username']);
     session_destroy();
-    unset($_SESSION['Username']);
-    header("location : SCROLL.html");
+    echo "Hello";
+ 	header("Location:SCROLL.php");
+    exit;
 }
 
 ?>

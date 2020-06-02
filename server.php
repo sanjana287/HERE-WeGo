@@ -1,8 +1,5 @@
 <?php
-
-session_start();
-
-//initialising variable
+//initialising variables
 $username = "";
 $email = "";
 
@@ -62,9 +59,16 @@ if(isset($_POST['sign-up']))
         $password = md5($password1); //This will encrypt the password
         $query = "INSERT INTO user (username , email , password) VALUES ('$username', '$email','$password')"; 
         mysqli_query($db, $query);
-        $_SESSION['Username'] = $username;
+        session_start();
+        $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
         header('location: apihere.php');
+    }
+    else
+    {
+
+    include 'errors.php';
+
     }
 }
 

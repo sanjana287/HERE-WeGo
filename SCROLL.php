@@ -1,6 +1,6 @@
-<?php require_once 'server.php' ; ?>
-<?php require_once 'connect.php' ; ?>
-<?php require_once 'index.php' ; ?>
+<?php include 'server.php' ; ?>
+<?php include 'connect.php' ; ?>
+<?php include 'index.php' ; ?>
 
 <HTML>
 
@@ -35,8 +35,8 @@
         </nav>
 
         <div id="home" class="container-cover h-100 w-100 one">
-            
-                <div class="container two"> Kuch Naam Rakho Iska! <br>
+                <h1 class="mb-0 mt-3" style="font-family: 'Baloo Chettan 2', cursive; color: #f5f5f5;padding-left: 40% !important"> HERE WeGo!</h1>
+                <div class="container two"><br>
                 This is a Simple Routing Application that displays the Route between the entered Source and Destination.<br>
                 Login/Sign up to explore more.</div>
         </div>
@@ -182,5 +182,6 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="js/resume.min.js"></script>
+
 </body>
 </HTML>
