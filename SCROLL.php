@@ -42,7 +42,7 @@
                 </center>
                 <br> 
                 This is a Simple Routing Application that displays the Route between the entered Source and Destination.
-                Login / Signup to explore more.
+                Login/Signup to explore more.
             </div>
         </div>
 
