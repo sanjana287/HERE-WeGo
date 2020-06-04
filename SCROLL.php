@@ -35,10 +35,15 @@
         </nav>
 
         <div id="home" class="container-cover h-100 w-100 one">
-                <h1 class="mb-0 mt-3" style="font-family: 'Baloo Chettan 2', cursive; color: #f5f5f5;padding-left: 40% !important"> HERE WeGo!</h1>
-                <div class="container two"><br>
-                This is a Simple Routing Application that displays the Route between the entered Source and Destination.<br>
-                Login/Sign up to explore more.</div>
+            <div class="container two">
+                <center>
+                    <h1 style="font-family: 'Baloo Chettan 2', cursive; color: #f5f5f5"> HERE WeGo!
+                    </h1>
+                </center>
+                <br> 
+                This is a Simple Routing Application that displays the Route between the entered Source and Destination.
+                Login / Signup to explore more.
+            </div>
         </div>
 
 
