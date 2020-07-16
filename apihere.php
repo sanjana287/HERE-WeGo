@@ -79,16 +79,16 @@
 
     <div class="col-12 col-md-7 w-100" id="map">
     <script>
-
+        // set up containers for the map  + panel
         var mapContainer = document.getElementById('map'),
             routeInstructionsContainer = document.getElementById('panel');
-
+        //Step 1: initialize communication with the platform
         var platform = new H.service.Platform({
             'apikey': 'j3O91_2BF0WCbCoukoosfv4PY4FumozY3Q0j6TdeVtI'
         });
 
         var defaultLayers = platform.createDefaultLayers();
-
+        //Step 2: initialize a map - this map is centered over Delhi
         var map = new H.Map(mapContainer,
             defaultLayers.vector.normal.map, {
                 center: {
@@ -99,6 +99,9 @@
                 pixelRatio: window.devicePixelRatio || 1
             });
 
+        //Step 3: make the map interactive
+        // MapEvents enables the event system
+        // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
         var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
         var ui = H.ui.UI.createDefault(map, defaultLayers);
         
@@ -113,8 +116,8 @@
                     representation: 'display',
                     routeattributes: 'waypoints,summary,shape,legs',
                     maneuverattributes: 'direction,action',
-                    waypoint0: `${pos[0].lat},${pos[0].lng}`, // Brandenburg Gate
-                    waypoint1: `${pos[1].lat},${pos[1].lng}` // Friedrichstraße Railway Station
+                    waypoint0: `${pos[0].lat},${pos[0].lng}`, // location 1
+                    waypoint1: `${pos[1].lat},${pos[1].lng}` // location 2
                 };
 
             router.calculateRoute(
@@ -147,6 +150,10 @@
         }
 
 
+/**
+ * This function will be called if a communication error occurs during the JSON-P request
+ * @param  {Object} error  The error message received.
+ */
         function onError(error) {
             alert('Can\'t reach the remote server');
         }
@@ -164,14 +171,10 @@
         obj = Object({
             'arr': Array()
         });
+        /* This function will be called once the Routing REST API provides a response*/
         function onSuccess(result) {
             var route = result.response.route[0];
             addRouteShapeToMap(route);
-           // addManueversToMap(route);
-
-            //addWaypointsToPanel(route.waypoint);
-            //addManueversToPanel(route);
-            //addSummaryToPanel(route.summary);
         }
         var onResult = function(result) {
             var locations = result.Response.View[0].Result,
@@ -191,7 +194,7 @@
                 map.addObject(marker);
             }
         };
-
+        // add a resize listener to make sure that the map occupies the whole container
         window.addEventListener('resize', () => map.getViewPort().resize());
         var geocoder = platform.getGeocodingService();
 
