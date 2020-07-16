@@ -10,7 +10,7 @@ if(isset($_GET["logout"])){
 	session_destroy();
 	session_write_close();
 	setcookie(session_name(),'',0,'/');
-	header("Location:SCROLL.php");
+	header("Location:index.php");
 	exit;
 }
 

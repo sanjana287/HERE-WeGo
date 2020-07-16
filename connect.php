@@ -2,8 +2,6 @@
 <?php 
 $link = mysqli_connect("localhost", "root", "");
 mysqli_select_db($link,"practice");
-//get values from form in signup file
-
 if(isset($_POST["log-in"])){
 	
 	$username = $_POST["username"];
@@ -32,7 +30,7 @@ if(isset($_POST["log-in"])){
 	}
 	else{
 
-	   header("Location: SCROLL.php");
+	   header("Location: index.php");
 	   echo "Invalid username or password, please try again!";
 	}
 }

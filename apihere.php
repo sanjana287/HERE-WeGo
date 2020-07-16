@@ -4,14 +4,14 @@
     session_start();
    
     if(!isset($_SESSION['username'])){
-        header("Location: SCROLL.php");
+        header("Location: index.php");
     }
 ?>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
 
     <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
@@ -146,41 +146,6 @@
             });
         }
 
-        function addManueversToMap(route) {
-            var svgMarkup = '',
-                dotIcon = new H.map.Icon(svgMarkup, {
-                    anchor: {
-                        x: 8,
-                        y: 8
-                    }
-                }),
-                group = new H.map.Group(),
-                i,
-                j;
-
-            for (i = 0; i < route.leg.length; i += 1) {
-                for (j = 0; j < route.leg[i].maneuver.length; j += 1) {
-                    maneuver = route.leg[i].maneuver[j];
-                    var marker = new H.map.Marker({
-                        lat: maneuver.position.latitude,
-                        lng: maneuver.position.longitude
-                    }, {
-                        icon: dotIcon
-                    });
-                    marker.instruction = maneuver.instruction;
-                    group.addObject(marker);
-                }
-            }
-
-            group.addEventListener('tap', function(evt) {
-                map.setCenter(evt.target.getGeometry());
-                openBubble(
-                    evt.target.getGeometry(), evt.target.instruction);
-            }, false);
-
-            map.addObject(group);
-        }
-
 
         function onError(error) {
             alert('Can\'t reach the remote server');
@@ -202,7 +167,7 @@
         function onSuccess(result) {
             var route = result.response.route[0];
             addRouteShapeToMap(route);
-            addManueversToMap(route);
+           // addManueversToMap(route);
 
             //addWaypointsToPanel(route.waypoint);
             //addManueversToPanel(route);
@@ -249,7 +214,7 @@
 </div>
     <script src="jquery.min.js"></script>
     <script src="popper.min.js"></script>
-    <script src="bootstrap.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
 </body>
 
 </html>
