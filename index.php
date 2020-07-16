@@ -44,7 +44,7 @@
             <div class="container two">
             <form class="col-10 offest-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3" action="connect.php" method="post">
 
-                <?php include('errors.php') ?>
+                <?php include('errors.php') ?> 
         
                     <div class="form-group" id="sign-up">
                         <p>LOGIN</p>
